@@ -287,8 +287,21 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
 .only-mobile { display: none; }
 @media (max-width: 860px) { .only-mobile { display: inline-grid; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* theme switcher menu (new classes; the Urbanist theme itself lives in src/theme/urbanist.css) */
+.design-menu { display: flex; flex-direction: column; gap: 6px; }
+.design-menu .dm-h { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); padding: 0 2px 2px; }
+.dm-opt { display: grid; grid-template-columns: auto minmax(0, 1fr) 18px; gap: 11px; align-items: center; width: 100%; text-align: left; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; color: var(--ink); }
+.dm-opt:hover { border-color: var(--line-2); background: var(--surface-2); }
+.dm-opt.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.dm-sw { display: inline-flex; }
+.dm-sw i { width: 16px; height: 28px; display: block; border: 1px solid rgba(0, 0, 0, .08); }
+.dm-sw i:first-child { border-radius: 6px 0 0 6px; } .dm-sw i:last-child { border-radius: 0 6px 6px 0; }
+.dm-t { display: flex; flex-direction: column; min-width: 0; } .dm-t b { font-size: 13px; } .dm-t small { font-size: 11px; color: var(--ink-3); line-height: 1.35; }
+.dm-ck svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+.dm-foot { font-size: 11px; color: var(--ink-3); padding: 4px 2px 0; line-height: 1.4; }
 </style>
-<script>(function(){try{var t=localStorage.getItem("cair.theme")||"dark";if(t!=="system")document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","dark")}})();</script>
+<script>(function(){try{var t=localStorage.getItem("cair.theme")||"dark";if(t!=="system")document.documentElement.setAttribute("data-theme",t);if(localStorage.getItem("cair.design")==="urbanist"){document.documentElement.style.background="#F7F7F4";document.documentElement.style.colorScheme="light"}}catch(e){document.documentElement.setAttribute("data-theme","dark")}})();</script>
 </head><body style="margin:0">
 <div id="root"></div>
 <style>
